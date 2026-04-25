@@ -638,22 +638,22 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
                 onClick={() => setSelectedLesson(item)}
-                className="bg-white group cursor-pointer border-4 border-slate-200 rounded-[2.5rem] p-8 hover:border-slate-900 hover:translate-y-[-6px] transition-all relative overflow-hidden"
+                className="bg-white group cursor-pointer border-2 border-slate-200 rounded-[2rem] p-6 hover:border-slate-900 hover:translate-y-[-4px] transition-all relative overflow-hidden"
               >
-                <div className="flex justify-between items-start mb-4 relative z-10">
-                  <span className="text-xs font-black italic text-brand-blue uppercase">BUỔI {item.session < 10 ? `0${item.session}` : item.session}</span>
-                  <div className="p-2 rounded-xl bg-slate-50 text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-all">
-                    <Info className="w-5 h-5" />
+                <div className="flex justify-between items-start mb-3 relative z-10">
+                  <span className="text-[10px] font-black italic text-brand-blue uppercase">BUỔI {item.session < 10 ? `0${item.session}` : item.session}</span>
+                  <div className="p-1.5 rounded-lg bg-slate-50 text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-all">
+                    <Info className="w-4 h-4" />
                   </div>
                 </div>
-                <h4 className="font-black text-2xl uppercase tracking-tighter leading-[1.1] mb-3 italic grow relative z-10 text-slate-900">{item.title}</h4>
-                <div className="flex items-center gap-3 text-brand-blue mb-6 relative z-10 bg-white/50 backdrop-blur-sm p-2 rounded-lg inline-flex border border-brand-blue/10">
-                  <Layers className="w-4 h-4" />
-                  <span className="text-xs font-bold uppercase truncate">{item.product}</span>
+                <h4 className="font-black text-xl uppercase tracking-tighter leading-[1.1] mb-2 italic grow relative z-10 text-slate-900">{item.title}</h4>
+                <div className="flex items-center gap-2.5 text-brand-blue mb-5 relative z-10 bg-white/50 backdrop-blur-sm p-1.5 rounded-lg inline-flex border border-brand-blue/10">
+                  <Layers className="w-3.5 h-3.5" />
+                  <span className="text-[10px] font-bold uppercase truncate">{item.product}</span>
                 </div>
 
                 {/* Floating Product Image Illustration */}
-                <div className="absolute -bottom-4 -right-4 w-32 md:w-44 h-32 md:h-44 opacity-25 blur-[2px] group-hover:opacity-60 group-hover:blur-0 transition-all duration-500 transform group-hover:scale-110 pointer-events-none">
+                <div className="absolute -bottom-3 -right-3 w-28 md:w-36 h-28 md:h-36 opacity-25 blur-[2px] group-hover:opacity-60 group-hover:blur-0 transition-all duration-500 transform group-hover:scale-110 pointer-events-none">
                   <img
                     src={item.image}
                     alt=""
@@ -661,11 +661,11 @@ export default function App() {
                   />
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 flex justify-between items-center relative z-10">
-                  <span className="px-3 py-1 bg-brand-blue/5 rounded-lg text-xs font-bold text-brand-blue uppercase tracking-widest italic">
+                <div className="pt-3 border-t border-slate-100 flex justify-between items-center relative z-10">
+                  <span className="px-2.5 py-0.5 bg-brand-blue/5 rounded-md text-[10px] font-bold text-brand-blue uppercase tracking-widest italic">
                     Tuần {item.week}
                   </span>
-                  <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-slate-900 transition-colors" />
+                  <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-slate-900 transition-colors" />
                 </div>
               </motion.div>
             ))}
@@ -675,59 +675,59 @@ export default function App() {
         {/* Showcase Footer */}
         <footer
           onClick={() => setShowShowcaseDetail(true)}
-          className="bg-brand-yellow p-8 rounded-[2rem] border-2 border-slate-900 brutalist-shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8 overflow-hidden relative mt-12 cursor-pointer group hover:translate-y-[-4px] transition-all"
+          className="bg-brand-yellow p-6 rounded-[1.5rem] border-2 border-slate-900 brutalist-shadow-sm flex flex-col lg:flex-row items-center justify-between gap-6 overflow-hidden relative mt-10 cursor-pointer group hover:translate-y-[-3px] transition-all"
         >
           <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 group-hover:rotate-6 transition-transform">
-            <Rocket className="w-32 h-32 rotate-12" />
+            <Rocket className="w-24 h-24 rotate-12" />
           </div>
-          <div className="flex flex-col md:flex-row items-center gap-6 relative">
-            <div className="px-4 py-2 bg-slate-900 text-white rounded-lg font-black text-xs uppercase rotate-[-1deg] tracking-widest flex items-center gap-2 shadow-md">
-              <Award className="w-4 h-4 text-brand-yellow" /> Sự kiện Ra mắt
+          <div className="flex flex-col md:flex-row items-center gap-4 relative">
+            <div className="px-3 py-1.5 bg-slate-900 text-white rounded-lg font-black text-[10px] uppercase rotate-[-1deg] tracking-widest flex items-center gap-2 shadow-md">
+              <Award className="w-3.5 h-3.5 text-brand-yellow" /> Sự kiện Ra mắt
             </div>
-            <div className="hidden md:block h-10 w-px bg-slate-900/10"></div>
-            <h5 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tighter italic leading-none">
+            <div className="hidden md:block h-8 w-px bg-slate-900/10"></div>
+            <h5 className="text-lg md:text-xl font-black text-slate-900 uppercase tracking-tighter italic leading-none">
               Future World Showcase (Tuần 5 - 6)
             </h5>
           </div>
 
-          <div className="flex flex-wrap justify-center lg:justify-end gap-x-8 gap-y-4 relative">
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black group-hover:scale-110 transition-transform shadow-md">09</span>
+          <div className="flex flex-wrap justify-center lg:justify-end gap-x-6 gap-y-3 relative">
+            <div className="flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center text-[9px] font-black group-hover:scale-110 transition-transform shadow-md">09</span>
               <div className="flex flex-col">
-                <span className="label-caps text-slate-900 text-[8px] uppercase tracking-widest leading-none mb-1">Buổi 09</span>
-                <span className="text-slate-900 text-sm font-black leading-none">Ý tưởng & Phác thảo PBL</span>
+                <span className="label-caps text-slate-900 text-[7px] uppercase tracking-widest leading-none mb-0.5">Buổi 09</span>
+                <span className="text-slate-900 text-xs font-black leading-none">Ý tưởng & Phác thảo PBL</span>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black group-hover:scale-110 transition-transform shadow-md">10</span>
+            <div className="flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center text-[9px] font-black group-hover:scale-110 transition-transform shadow-md">10</span>
               <div className="flex flex-col">
-                <span className="label-caps text-slate-900 text-[8px] uppercase tracking-widest leading-none mb-1">Buổi 10</span>
-                <span className="text-slate-900 text-sm font-black leading-none">Phát triển Hệ sinh thái</span>
+                <span className="label-caps text-slate-900 text-[7px] uppercase tracking-widest leading-none mb-0.5">Buổi 10</span>
+                <span className="text-slate-900 text-xs font-black leading-none">Phát triển Hệ sinh thái</span>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black group-hover:scale-110 transition-transform shadow-md">11</span>
+            <div className="flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center text-[9px] font-black group-hover:scale-110 transition-transform shadow-md">11</span>
               <div className="flex flex-col">
-                <span className="label-caps text-slate-900 text-[8px] uppercase tracking-widest leading-none mb-1">Buổi 11</span>
-                <span className="text-slate-900 text-sm font-black leading-none">Hoàn thiện Portfolio số</span>
+                <span className="label-caps text-slate-900 text-[7px] uppercase tracking-widest leading-none mb-0.5">Buổi 11</span>
+                <span className="text-slate-900 text-xs font-black leading-none">Hoàn thiện Portfolio số</span>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black group-hover:scale-110 transition-transform shadow-md">12</span>
+            <div className="flex items-center gap-2.5">
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white flex items-center justify-center text-[9px] font-black group-hover:scale-110 transition-transform shadow-md">12</span>
               <div className="flex flex-col">
-                <span className="label-caps text-slate-900 text-[8px] uppercase tracking-widest leading-none mb-1">Buổi 12</span>
-                <span className="text-slate-900 text-sm font-black leading-none">Lễ ra mắt STEM Showcase</span>
+                <span className="label-caps text-slate-900 text-[7px] uppercase tracking-widest leading-none mb-0.5">Buổi 12</span>
+                <span className="text-slate-900 text-xs font-black leading-none">Lễ ra mắt STEM Showcase</span>
               </div>
             </div>
-            <div className="flex items-center self-center pl-4 text-slate-900 opacity-40 group-hover:opacity-100 transition-opacity">
-              <ChevronRight className="w-5 h-5" />
+            <div className="flex items-center self-center pl-2 text-slate-900 opacity-40 group-hover:opacity-100 transition-opacity">
+              <ChevronRight className="w-4 h-4" />
             </div>
           </div>
         </footer>
 
         {/* Final CTA Area */}
-        <section className="py-16 flex flex-col items-center text-center gap-6">
-          <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-none">Sẵn sàng kiến tạo <br /> <span className="text-brand-blue underline decoration-brand-yellow decoration-[8px] underline-offset-4">Tương lai?</span></h2>
+        <section className="py-12 flex flex-col items-center text-center gap-6">
+          <h2 className="text-2xl md:text-3xl font-black uppercase italic tracking-tighter leading-none">Sẵn sàng kiến tạo <br /> <span className="text-brand-blue underline decoration-brand-yellow decoration-[6px] underline-offset-2">Tương lai?</span></h2>
           <p className="text-base text-slate-500 max-w-lg font-medium">Bắt đầu hành trình nâng cấp bản thân và sở hữu hệ sinh thái công nghệ cá nhân đầu tiên của bạn ngay hôm nay.</p>
           <div className="flex flex-col sm:flex-row gap-4 mt-2">
             <button className="px-10 py-4 bg-brand-blue text-white rounded-xl font-black text-lg uppercase brutalist-shadow hover:translate-y-[-4px] transition-all">Đăng ký tham gia ngay</button>
