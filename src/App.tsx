@@ -138,31 +138,31 @@ const LessonModal = ({ item, onClose }: { item: any, onClose: () => void }) => (
       initial={{ scale: 0.95, y: 20 }}
       animate={{ scale: 1, y: 0 }}
       exit={{ scale: 0.95, y: 20 }}
-      className="bg-white w-full max-w-2xl rounded-3xl border-2 border-slate-900 brutalist-shadow-sm overflow-hidden"
+      className="bg-white w-full max-w-5xl rounded-[3.5rem] border-4 border-slate-900 brutalist-shadow-lg overflow-hidden"
       onClick={e => e.stopPropagation()}
     >
       <div className="flex justify-between items-center p-6 border-b-2 border-slate-900 bg-slate-50">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-slate-900 text-white rounded-xl flex items-center justify-center font-black text-xl italic">
+        <div className="flex items-center gap-4">
+          <div className="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center font-black text-2xl italic shadow-xl">
             {item.session < 10 ? `0${item.session}` : item.session}
           </div>
           <div>
-            <div className="label-caps !text-slate-400">Tuần {item.week} / Buổi {item.session}</div>
-            <h3 className="font-black text-xl uppercase tracking-tight">{item.title}</h3>
+            <div className="label-caps !text-slate-400 text-xs mb-0.5 uppercase tracking-widest">Tuần {item.week} / Buổi {item.session}</div>
+            <h3 className="font-black text-2xl uppercase tracking-tight italic">{item.title}</h3>
           </div>
         </div>
-        <button onClick={onClose} className="p-2 hover:bg-slate-200 rounded-xl transition-colors">
-          <X className="w-6 h-6" />
+        <button onClick={onClose} className="p-2 hover:bg-slate-200 rounded-2xl transition-colors">
+          <X className="w-8 h-8" />
         </button>
       </div>
 
-      <div className="p-8 space-y-6 max-h-[70vh] overflow-y-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="space-y-6">
+      <div className="p-10 space-y-8 max-h-[80vh] overflow-y-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="space-y-8">
             <div>
-              <div className="label-caps mb-1 text-brand-blue">Sản phẩm bài học</div>
-              <p className="font-black text-xl text-slate-800 uppercase italic leading-tight">{item.product}</p>
-              <p className="text-xs text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+              <div className="label-caps mb-2 text-brand-blue text-xs uppercase tracking-widest">Sản phẩm bài học</div>
+              <p className="font-black text-3xl text-slate-800 uppercase italic leading-tight tracking-tight">{item.product}</p>
+              <p className="text-lg text-slate-500 mt-4 leading-relaxed font-medium italic border-l-4 border-brand-blue/20 pl-4">{item.description}</p>
             </div>
 
             <div className="aspect-video bg-slate-100 rounded-3xl border-2 border-slate-900 brutalist-shadow-sm overflow-hidden relative group">
@@ -177,42 +177,42 @@ const LessonModal = ({ item, onClose }: { item: any, onClose: () => void }) => (
             </div>
 
             <div>
-              <div className="label-caps mb-1">Mục tiêu cốt lõi</div>
-              <p className="text-sm text-slate-700 leading-relaxed font-medium">{item.goal}</p>
+              <div className="label-caps mb-2 text-xs uppercase tracking-widest">Mục tiêu cốt lõi</div>
+              <p className="text-lg text-slate-700 leading-relaxed font-medium">{item.goal}</p>
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="p-6 bg-slate-50 rounded-2xl border-2 border-slate-900/10">
-              <div className="label-caps mb-3 text-slate-900 flex items-center gap-2">
-                <Target className="w-4 h-4" /> Hoạt động chính
+          <div className="space-y-8">
+            <div className="p-8 bg-slate-50 rounded-3xl border-2 border-slate-900/10 shadow-sm">
+              <div className="label-caps mb-4 text-slate-900 flex items-center gap-3 text-xs uppercase tracking-widest">
+                <Target className="w-5 h-5 text-brand-blue" /> Hoạt động chính
               </div>
-              <p className="text-sm text-slate-600 leading-relaxed italic">{item.activities}</p>
+              <p className="text-lg text-slate-600 leading-relaxed italic font-medium">{item.activities}</p>
             </div>
 
-            <div className="p-6 bg-brand-blue/5 rounded-2xl border-2 border-brand-blue/20">
-              <div className="flex items-center gap-2 mb-3">
-                <Notebook className="w-5 h-5 text-brand-blue" />
+            <div className="p-8 bg-brand-blue/5 rounded-3xl border-2 border-brand-blue/20 shadow-md rotate-1">
+              <div className="flex items-center gap-3 mb-4">
+                <Notebook className="w-7 h-7 text-brand-blue" />
                 <span className="font-black text-xs uppercase tracking-widest text-brand-blue italic">NotebookLM Studio Trace</span>
               </div>
-              <p className="text-sm text-slate-700 italic leading-relaxed">
+              <p className="text-lg text-slate-700 italic leading-relaxed font-bold">
                 "{item.notebook}"
               </p>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2 pt-6 border-t border-slate-100">
+        <div className="flex flex-wrap gap-2 pt-8 border-t-2 border-slate-100">
           {item.tags.map((tag: string) => (
-            <span key={tag} className="px-2 py-1 bg-slate-100 text-slate-500 rounded text-[9px] font-mono border border-slate-200 uppercase font-bold tracking-tighter">
+            <span key={tag} className="px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-xs font-mono border border-slate-200 uppercase font-black tracking-widest">
               #{tag}
             </span>
           ))}
         </div>
       </div>
 
-      <div className="p-4 bg-slate-900 flex justify-end">
-        <button className="px-6 py-2 bg-brand-yellow text-slate-900 rounded-xl font-black text-xs uppercase brutalist-shadow-sm hover:translate-y-[-2px] transition-transform">
+      <div className="p-6 bg-slate-900 flex justify-end">
+        <button className="px-10 py-3 bg-brand-yellow text-slate-900 rounded-xl font-black text-lg uppercase tracking-widest brutalist-shadow-sm hover:translate-y-[-4px] transition-transform">
           Đăng ký ngay
         </button>
       </div>
@@ -232,96 +232,96 @@ const PhaseModal = ({ phase, onClose }: { phase: any, onClose: () => void }) => 
       initial={{ scale: 0.9, opacity: 0, y: 40 }}
       animate={{ scale: 1, opacity: 1, y: 0 }}
       exit={{ scale: 0.9, opacity: 0, y: 40 }}
-      className="bg-white w-full max-w-4xl rounded-[2.5rem] border-4 border-slate-900 brutalist-shadow-lg overflow-hidden flex flex-col md:flex-row"
+      className="bg-white w-full max-w-6xl rounded-[3rem] border-4 border-slate-900 brutalist-shadow-lg overflow-hidden flex flex-col md:flex-row"
       onClick={e => e.stopPropagation()}
     >
       {/* Sidebar: Icon & Basic Info */}
-      <div className={`md:w-1/3 p-10 flex flex-col items-center justify-center text-center gap-6 ${phase.colorClass} border-b-4 md:border-b-0 md:border-r-4 border-slate-900`}>
-        <div className="w-24 h-24 bg-white/20 backdrop-blur-md rounded-[2rem] flex items-center justify-center border-2 border-white/30 rotate-3 shadow-2xl">
+      <div className={`md:w-1/3 p-12 flex flex-col items-center justify-center text-center gap-8 ${phase.colorClass} border-b-4 md:border-b-0 md:border-r-4 border-slate-900 shadow-xl`}>
+        <div className="w-32 h-32 bg-white/20 backdrop-blur-md rounded-[2.5rem] flex items-center justify-center border-2 border-white/30 rotate-3 shadow-2xl">
           {phase.icon && (
-            <div className="scale-[2.5] text-white">
+            <div className="scale-[3] text-white">
               {phase.icon}
             </div>
           )}
         </div>
-        <div>
-          <span className="bg-white/20 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-2 inline-block">
+        <div className="space-y-3">
+          <span className="bg-white/20 px-6 py-2 rounded-full text-sm font-black uppercase tracking-widest mb-2 inline-block shadow-md">
             {phase.weeks}
           </span>
-          <h3 className="text-3xl font-black uppercase italic leading-none tracking-tighter">
+          <h3 className="text-4xl font-black uppercase italic leading-none tracking-tighter drop-shadow-xl">
             {phase.title}
           </h3>
-          <div className="label-caps mt-2 opacity-80">{phase.subtitle}</div>
+          <div className="label-caps mt-2 opacity-90 text-sm font-bold tracking-widest">{phase.subtitle}</div>
         </div>
         <button
           onClick={onClose}
-          className="mt-8 px-8 py-3 bg-slate-900 text-white rounded-xl font-bold uppercase text-[10px] tracking-widest hover:scale-105 transition-all"
+          className="mt-8 px-8 py-3 bg-slate-900 text-white rounded-xl font-black uppercase text-xs tracking-widest hover:scale-105 transition-all brutalist-shadow-sm"
         >
           Đóng cửa sổ
         </button>
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 p-8 md:p-12 overflow-y-auto max-h-[80vh] bg-slate-50 md:bg-white">
-        <div className="space-y-10">
+      <div className="flex-1 p-10 md:p-16 overflow-y-auto max-h-[85vh] bg-slate-50 md:bg-white">
+        <div className="space-y-12">
           {/* Section: Overview */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2 text-slate-400">
-              <Sparkles className="w-4 h-4" />
-              <span className="label-caps !text-slate-400">Tổng quan chặng</span>
+            <div className="flex items-center gap-3 text-slate-400">
+              <Sparkles className="w-6 h-6 text-brand-blue" />
+              <span className="label-caps !text-slate-400 text-sm uppercase tracking-widest">Tổng quan chặng</span>
             </div>
-            <p className="text-xl font-bold text-slate-600 italic leading-relaxed">
+            <p className="text-2xl font-black text-slate-600 italic leading-relaxed border-l-4 border-slate-100 pl-6">
               "{phase.description}"
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-10">
             {/* Subsection: Goals */}
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div>
-                <div className="label-caps text-brand-blue mb-2">Mục tiêu cốt lõi</div>
-                <p className="text-sm font-medium text-slate-700 leading-relaxed">{phase.fullGoal}</p>
+                <div className="label-caps text-brand-blue mb-2 text-sm uppercase tracking-widest">Mục tiêu cốt lõi</div>
+                <p className="text-xl font-bold text-slate-700 leading-relaxed">{phase.fullGoal}</p>
               </div>
               <div>
-                <div className="label-caps text-indigo-600 mb-2">Giá trị công nghệ</div>
-                <p className="text-sm font-medium text-slate-700 leading-relaxed">{phase.techValue}</p>
+                <div className="label-caps text-indigo-600 mb-2 text-sm uppercase tracking-widest">Giá trị công nghệ</div>
+                <p className="text-xl font-bold text-slate-700 leading-relaxed">{phase.techValue}</p>
               </div>
             </div>
 
             {/* Subsection: NotebookLM */}
-            <div className="bg-brand-blue/5 p-6 rounded-3xl border-2 border-brand-blue/20 rotate-1">
-              <div className="flex items-center gap-2 mb-4 text-brand-blue">
-                <Notebook className="w-5 h-5" />
-                <span className="label-caps !text-brand-blue">NotebookLM Studio Trace</span>
+            <div className="bg-brand-blue/5 p-8 rounded-3xl border-4 border-brand-blue/20 rotate-1 shadow-xl relative overflow-hidden">
+              <div className="flex items-center gap-3 mb-4 text-brand-blue relative z-10">
+                <Notebook className="w-6 h-6" />
+                <span className="label-caps !text-brand-blue text-sm uppercase tracking-widest">NotebookLM Studio Trace</span>
               </div>
-              <p className="text-sm font-bold text-slate-700 italic leading-relaxed">
+              <p className="text-xl font-black text-slate-700 italic leading-relaxed relative z-10">
                 "{phase.notebookActivity}"
               </p>
             </div>
           </div>
 
           {/* Section: Products Grid */}
-          <div className="space-y-6 pt-6 border-t border-slate-100">
-            <h4 className="label-caps flex items-center gap-2">
-              <Layers className="w-4 h-4" /> Sản phẩm tiêu biểu sau chặng
+          <div className="space-y-8 pt-10 border-t-2 border-slate-100">
+            <h4 className="label-caps flex items-center gap-3 text-sm uppercase tracking-widest">
+              <Layers className="w-6 h-6 text-brand-blue" /> Sản phẩm tiêu biểu sau chặng
             </h4>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-3">
-                <div className="text-[10px] font-black uppercase text-slate-400 bg-slate-100 px-3 py-1 rounded inline-block">Junior Makers</div>
-                <ul className="space-y-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <div className="text-xs font-black uppercase text-slate-400 bg-slate-100 px-4 py-2 rounded-lg inline-block tracking-widest">Junior Makers</div>
+                <ul className="space-y-3">
                   {phase.juniorProducts.map((p: string, i: number) => (
-                    <li key={i} className="flex items-start gap-2 text-xs font-bold text-slate-600 tracking-tight">
+                    <li key={i} className="flex items-start gap-2 text-lg font-bold text-slate-600 tracking-tight leading-tight">
                       <span className="text-brand-blue mt-1 shrink-0">•</span> {p}
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="space-y-3">
-                <div className="text-[10px] font-black uppercase text-indigo-100 bg-indigo-600 px-3 py-1 rounded inline-block">Pro Makers</div>
-                <ul className="space-y-2">
+              <div className="space-y-4">
+                <div className="text-xs font-black uppercase text-indigo-100 bg-indigo-600 px-4 py-2 rounded-lg inline-block tracking-widest">Pro Makers</div>
+                <ul className="space-y-3">
                   {phase.proProducts.map((p: string, i: number) => (
-                    <li key={i} className="flex items-start gap-2 text-xs font-bold text-slate-600 tracking-tight">
+                    <li key={i} className="flex items-start gap-2 text-lg font-bold text-slate-600 tracking-tight leading-tight">
                       <span className="text-indigo-600 mt-1 shrink-0">•</span> {p}
                     </li>
                   ))}
@@ -345,26 +345,26 @@ export default function App() {
   const currentData = activeTab === "junior" ? juniorCurriculum : proCurriculum;
 
   return (
-    <div className="min-h-screen p-4 md:p-8 flex flex-col tech-grid-dense text-slate-900">
-      <div className="max-w-[1240px] mx-auto w-full flex-1 flex flex-col gap-8">
+    <div className="min-h-screen p-4 md:p-12 flex flex-col tech-grid-dense text-slate-900">
+      <div className="max-w-[1600px] mx-auto w-full flex-1 flex flex-col gap-12">
 
         {/* Header Section */}
-        <header className="flex flex-col md:flex-row justify-between items-start gap-6">
-          <div className="flex-1 flex flex-col md:flex-row items-start gap-6">
+        <header className="flex flex-col md:flex-row justify-between items-start gap-10">
+          <div className="flex-1 flex flex-col md:flex-row items-center md:items-start gap-10">
             <img
               src="https://static.ybox.vn/2021/6/4/1622738337045-Thi%E1%BA%BFt%20k%E1%BA%BF%20kh%C3%B4ng%20t%C3%AAn%20(7).png"
               alt="Logo Edison STEM Academy"
-              className="h-16 md:h-20 object-contain mix-blend-multiply"
+              className="h-24 md:h-32 object-contain mix-blend-multiply"
               referrerPolicy="no-referrer"
             />
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-3 text-brand-blue font-bold tracking-[0.2em] text-[10px] uppercase">
-                <span className="bg-brand-blue text-white px-2 py-0.5 rounded-sm">EDISON STEM ACADEMY</span>
+            <div className="flex-1 text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start gap-3 mb-4 text-brand-blue font-bold tracking-[0.25em] text-xs uppercase">
+                <span className="bg-brand-blue text-white px-3 py-1 rounded-sm">EDISON STEM ACADEMY</span>
                 <span>CHƯƠNG TRÌNH HÈ 2026</span>
               </div>
-              <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-none mb-2 tracking-tight">FUTURE ME - FUTURE WORLD</h1>
-              <p className="text-xl font-bold text-brand-blue uppercase tracking-[0.15em] flex items-center gap-2">
-                <Sparkles className="w-5 h-5" /> EA SUMMER CAMP STEM TREK 2026
+              <h1 className="text-6xl md:text-8xl font-black text-slate-900 leading-none mb-4 tracking-tighter uppercase italic">FUTURE ME - FUTURE WORLD</h1>
+              <p className="text-2xl md:text-3xl font-black text-brand-blue uppercase tracking-[0.2em] flex items-center justify-center md:justify-start gap-3 italic">
+                <Sparkles className="w-8 h-8" /> EA SUMMER CAMP STEM TREK 2026
               </p>
             </div>
           </div>
@@ -380,11 +380,11 @@ export default function App() {
 
           <div className="relative z-10 space-y-16">
             {/* Header Area - Justified Layout Like Description */}
-            <div className="space-y-10 border-b border-white/5 pb-12 w-full">
-              <h2 className="text-3xl md:text-6xl font-black uppercase italic tracking-tighter leading-[1.1] text-white drop-shadow-2xl scale-y-95 origin-left w-full text-justify whitespace-normal">
+            <div className="space-y-12 border-b border-white/5 pb-16 w-full">
+              <h2 className="text-4xl md:text-7xl font-black uppercase italic tracking-tighter leading-[1.05] text-white drop-shadow-2xl scale-y-95 origin-left w-full text-justify whitespace-normal">
                 HÀNH TRÌNH PHÁT HÀNH PHIÊN BẢN <span className="text-brand-yellow">TƯƠNG LAI CỦA CHÍNH CON</span>
               </h2>
-              <p className="text-slate-400 text-lg md:text-xl leading-relaxed w-full text-justify italic font-medium">
+              <p className="text-slate-400 text-xl md:text-3xl leading-relaxed w-full text-justify italic font-medium">
                 Ba mẹ đang băn khoăn chọn trại hè cho con? Đừng để mùa hè của con trôi qua vô nghĩa trước màn hình điện thoại hay những lớp học khô khan. <strong>EA SUMMER STEM TREK 2026</strong> mang đến câu trả lời hoàn hảo: Nơi con không chỉ "học" công nghệ, mà dùng công nghệ để kiến tạo thế giới của riêng mình.
               </p>
             </div>
@@ -400,15 +400,15 @@ export default function App() {
 
                 <div className="relative space-y-0">
                   {/* Vertical Connector Line */}
-                  <div className="absolute left-6 top-8 bottom-8 w-px bg-gradient-to-b from-brand-blue via-emerald-500 to-orange-500 opacity-20"></div>
+                  <div className="absolute left-8 top-10 bottom-10 w-0.5 bg-gradient-to-b from-brand-blue via-emerald-500 to-orange-500 opacity-20"></div>
 
-                  <div className="space-y-10">
+                  <div className="space-y-12">
                     {[
                       {
                         id: 1,
                         tag: "Tuần 1 - 2",
                         title: "UPGRADE MY SPACE",
-                        icon: <Bot className="w-6 h-6 text-brand-blue" />,
+                        icon: <Bot className="w-8 h-8 text-brand-blue" />,
                         color: "brand-blue",
                         desc: <>Con tự tay chế tạo <strong>"Trợ thủ vật lý"</strong> (Robot nhắc tư thế ngồi, Két sắt bảo mật) để rèn luyện tính kỷ luật và làm chủ không gian sống.</>
                       },
@@ -416,7 +416,7 @@ export default function App() {
                         id: 2,
                         tag: "Tuần 3",
                         title: "OPTIMIZE MY MIND",
-                        icon: <Cpu className="w-6 h-6 text-emerald-500" />,
+                        icon: <Cpu className="w-8 h-8 text-emerald-500" />,
                         color: "emerald-500",
                         desc: <>Thay vì lệ thuộc vào AI, con học cách điều phối nó. Huấn luyện máy tính nhận diện và lập trình Chatbot gia sư để tối ưu hiệu suất học tập.</>
                       },
@@ -424,7 +424,7 @@ export default function App() {
                         id: 3,
                         tag: "Tuần 4",
                         title: "LEVEL UP MY WORLD",
-                        icon: <Globe className="w-6 h-6 text-purple-500" />,
+                        icon: <Globe className="w-8 h-8 text-purple-500" />,
                         color: "purple-500",
                         desc: <>Phá bỏ mọi giới hạn thực tại. Con kiến tạo không gian ảo 360 độ và mê cung tương tác, biến kiến thức sách vở thành trải nghiệm chạm vào được.</>
                       },
@@ -432,19 +432,19 @@ export default function App() {
                         id: 4,
                         tag: "Tuần 5 - 6",
                         title: "FUTURE ME SYSTEM",
-                        icon: <Rocket className="w-6 h-6 text-orange-500" />,
+                        icon: <Rocket className="w-8 h-8 text-orange-500" />,
                         color: "orange-500",
                         desc: <>Chặng về đích bùng nổ! Con hội quân cùng bè bạn trong vai trò <strong>"Kỹ sư trưởng"</strong>, giải quyết vấn đề thực tế để xây dựng một hệ sinh thái công nghệ vì cộng đồng.</>
                       }
                     ].map(chặng => (
-                      <div key={chặng.id} className="relative pl-16 group">
-                        <div className={`absolute left-0 top-0 w-12 h-12 rounded-2xl bg-${chặng.color}/10 border-2 border-${chặng.color} flex items-center justify-center z-10 group-hover:scale-110 transition-transform`}>
+                      <div key={chặng.id} className="relative pl-24 group">
+                        <div className={`absolute left-0 top-0 w-16 h-16 rounded-2xl bg-${chặng.color}/10 border-2 border-${chặng.color} flex items-center justify-center z-10 group-hover:scale-110 transition-transform shadow-2xl`}>
                           {chặng.icon}
                         </div>
-                        <div className="pt-1">
-                          <div className={`text-[10px] font-black text-${chặng.color} uppercase tracking-widest mb-1`}>CHẶNG {chặng.id}: {chặng.tag}</div>
-                          <h3 className="text-xl font-black text-white leading-tight uppercase italic mb-2">{chặng.title}</h3>
-                          <p className="text-sm text-slate-400 leading-relaxed italic">
+                        <div className="pt-2">
+                          <div className={`text-sm font-black text-${chặng.color} uppercase tracking-[0.2em] mb-2`}>CHẶNG {chặng.id}: {chặng.tag}</div>
+                          <h3 className="text-3xl font-black text-white leading-tight uppercase italic mb-3 tracking-tight">{chặng.title}</h3>
+                          <p className="text-xl text-slate-400 leading-relaxed italic font-medium">
                             {chặng.desc}
                           </p>
                         </div>
@@ -482,90 +482,90 @@ export default function App() {
         </section>
 
         {/* Value Propositions */}
-        <section className="mt-12">
-          <h2 className="text-3xl font-black uppercase mb-6 italic tracking-tight text-slate-900 border-l-4 border-brand-blue pl-4">
+        <section className="mt-24">
+          <h2 className="text-5xl font-black uppercase mb-12 italic tracking-tighter text-slate-900 border-l-[12px] border-brand-blue pl-8">
             GIÁ TRỊ KHÁC BIỆT TẠI EA SUMMER CAMP STEM TREK 2026
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-emerald-50 border-2 border-slate-900 rounded-[2rem] p-6 brutalist-shadow-sm flex flex-col gap-3">
-              <div className="w-10 h-10 bg-emerald-600 text-white rounded-xl flex items-center justify-center border-2 border-slate-900">
-                <Cpu className="w-5 h-5" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="bg-emerald-50 border-4 border-slate-900 rounded-[3rem] p-12 brutalist-shadow flex flex-col gap-6">
+              <div className="w-20 h-20 bg-emerald-600 text-white rounded-2xl flex items-center justify-center border-4 border-slate-900 shadow-xl">
+                <Cpu className="w-10 h-10" />
               </div>
-              <h3 className="font-black text-lg text-slate-900 uppercase italic leading-tight">Năng lực thật</h3>
-              <p className="text-sm text-slate-600 italic">Từ người tiêu thụ màn hình trở thành người sáng tạo công nghệ.</p>
+              <h3 className="font-black text-4xl text-slate-900 uppercase italic leading-none tracking-tight">Năng lực thật</h3>
+              <p className="text-2xl text-slate-600 italic leading-relaxed">Từ người tiêu thụ màn hình trở thành người sáng tạo công nghệ.</p>
             </div>
 
-            <div className="bg-indigo-50 border-2 border-slate-900 rounded-[2rem] p-6 brutalist-shadow-sm flex flex-col gap-3">
-              <div className="w-10 h-10 bg-indigo-600 text-white rounded-xl flex items-center justify-center border-2 border-slate-900">
-                <Notebook className="w-5 h-5" />
+            <div className="bg-indigo-50 border-4 border-slate-900 rounded-[3rem] p-12 brutalist-shadow flex flex-col gap-6">
+              <div className="w-20 h-20 bg-indigo-600 text-white rounded-2xl flex items-center justify-center border-4 border-slate-900 shadow-xl">
+                <Notebook className="w-10 h-10" />
               </div>
-              <h3 className="font-black text-lg text-slate-900 uppercase italic leading-tight">Siêu công cụ NotebookLM</h3>
-              <p className="text-sm text-slate-600 italic">AI Studio giúp con lưu trữ tri thức và xuất bản Portfolio năng lực số chuyên nghiệp.</p>
+              <h3 className="font-black text-4xl text-slate-900 uppercase italic leading-none tracking-tight">Công cụ NotebookLM</h3>
+              <p className="text-2xl text-slate-600 italic leading-relaxed">AI Studio giúp con lưu trữ tri thức và xuất bản Portfolio năng lực số chuyên nghiệp.</p>
             </div>
 
-            <div className="bg-purple-50 border-2 border-slate-900 rounded-[2rem] p-6 brutalist-shadow-sm flex flex-col gap-3">
-              <div className="w-10 h-10 bg-purple-600 text-white rounded-xl flex items-center justify-center border-2 border-slate-900">
-                <Award className="w-5 h-5" />
+            <div className="bg-purple-50 border-4 border-slate-900 rounded-[3rem] p-12 brutalist-shadow flex flex-col gap-6">
+              <div className="w-20 h-20 bg-purple-600 text-white rounded-2xl flex items-center justify-center border-4 border-slate-900 shadow-xl">
+                <Award className="w-10 h-10" />
               </div>
-              <h3 className="font-black text-lg text-slate-900 uppercase italic leading-tight">Showcase rực rỡ</h3>
-              <p className="text-sm text-slate-600 italic">Buổi trình diễn hệ sinh thái thông minh giúp con tự tin khẳng định bản sắc trước phụ huynh.</p>
+              <h3 className="font-black text-4xl text-slate-900 uppercase italic leading-none tracking-tight">Showcase rực rỡ</h3>
+              <p className="text-2xl text-slate-600 italic leading-relaxed">Buổi trình diễn hệ sinh thái thông minh giúp con tự tin khẳng định bản sắc trước phụ huynh.</p>
             </div>
           </div>
         </section>
 
         {/* Phase Details Section */}
-        <section className="pt-12">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-4 mb-8">
-            <div className="border-l-4 border-indigo-600 pl-4">
-              <h2 className="text-3xl font-black uppercase italic tracking-tighter text-slate-900 leading-none">
+        <section className="pt-20">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-6 mb-10">
+            <div className="border-l-8 border-brand-blue pl-6">
+              <h2 className="text-5xl font-black uppercase italic tracking-tighter text-slate-900 leading-none">
                 Chi tiết 4 chặng nâng cấp
               </h2>
-              <p className="text-slate-500 text-xs mt-2 font-medium">Bấm vào từng chặng để xem mục tiêu và sản phẩm chi tiết.</p>
+              <p className="text-slate-500 text-lg mt-3 font-medium">Bấm vào từng chặng để xem mục tiêu và sản phẩm chi tiết.</p>
             </div>
-            <div className="hidden md:flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-widest">
-              <Clock className="w-3 h-3" /> Tổng thời lượng: 6 tuần / 12 buổi
+            <div className="hidden md:flex items-center gap-3 text-sm font-black text-slate-400 uppercase tracking-widest">
+              <Clock className="w-4 h-4" /> Tổng thời lượng: 6 tuần / 12 buổi
             </div>
           </div>
 
-          <main className="grid grid-cols-12 gap-6">
+          <main className="grid grid-cols-12 gap-8">
             {/* Notebook highlight */}
-            <aside className="col-span-12 lg:col-span-3 flex flex-col gap-6">
+            <aside className="col-span-12 lg:col-span-4 flex flex-col gap-10">
               <motion.div
                 onClick={() => setShowNotebookDetail(true)}
-                className="bg-brand-blue text-white p-6 rounded-[2rem] flex-1 relative overflow-hidden flex flex-col border-2 border-slate-900 brutalist-shadow cursor-pointer group hover:scale-[1.02] transition-transform"
+                className="bg-brand-blue text-white p-12 rounded-[3rem] flex-1 relative overflow-hidden flex flex-col border-4 border-slate-900 brutalist-shadow cursor-pointer group hover:scale-[1.02] transition-transform"
               >
-                <div className="flex items-center gap-2 mb-4">
-                  <Notebook className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-                  <h3 className="font-black text-lg leading-tight uppercase tracking-tight italic">NotebookLM Studio Highlight</h3>
+                <div className="flex items-center gap-6 mb-8">
+                  <Notebook className="w-16 h-16 group-hover:rotate-12 transition-transform" />
+                  <h3 className="font-black text-4xl leading-tight uppercase tracking-tighter italic">NotebookLM Studio Highlight</h3>
                 </div>
-                <p className="text-sm text-blue-100 mb-6 leading-relaxed flex-1 italic">
+                <p className="text-2xl text-blue-100 mb-10 leading-relaxed flex-1 italic font-medium">
                   "Trợ lý tri thức giúp học sinh lưu trữ dữ liệu, xây dựng hồ sơ năng lực số (Portfolio) và sáng tạo kịch bản thuyết trình chuyên nghiệp."
                 </p>
-                <ul className="space-y-3">
+                <ul className="space-y-6">
                   {[
                     "Nhật ký kỹ sư số",
                     "Audio Podcast giới thiệu",
                     "Kịch bản thuyết trình AI"
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-[10px] font-bold uppercase tracking-wider">
-                      <div className="w-4 h-4 rounded-full bg-white/20 mt-0.5 shrink-0 flex items-center justify-center font-bold">✓</div>
+                    <li key={i} className="flex items-start gap-4 text-lg font-black uppercase tracking-widest">
+                      <div className="w-8 h-8 rounded-full bg-white/20 mt-0.5 shrink-0 flex items-center justify-center font-bold">✓</div>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-4 flex items-center gap-2 text-[8px] font-black uppercase opacity-60 group-hover:opacity-100 transition-opacity">
-                  Xem chi tiết chiến thuật <ChevronRight className="w-3 h-3" />
+                <div className="mt-10 flex items-center gap-3 text-sm font-black uppercase opacity-70 group-hover:opacity-100 transition-opacity tracking-widest">
+                  Xem chi tiết chiến thuật <ChevronRight className="w-5 h-5" />
                 </div>
-                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
               </motion.div>
 
-              <div className="bg-slate-900 text-white p-6 rounded-2xl border-2 border-slate-900 brutalist-shadow-sm">
-                <div className="label-caps text-slate-400 mb-4 flex items-center gap-2">
-                  <Terminal className="w-3 h-3" /> Công cụ cốt lõi
+              <div className="bg-slate-900 text-white p-8 rounded-3xl border-4 border-slate-900 brutalist-shadow-sm">
+                <div className="label-caps text-slate-400 mb-6 flex items-center gap-3 text-xs">
+                  <Terminal className="w-4 h-4" /> Công cụ cốt lõi
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {["NOTEBOOKLM", "Assemblr EDU", "TINKER CAD", "MAKER EMPIRE", "Delightex Edu", "Lego", "Scratch", "Pictoblox"].map(tech => (
-                    <span key={tech} className="px-2 py-1 bg-slate-800 rounded border border-slate-700 text-[9px] font-mono font-bold tracking-wider">
+                    <span key={tech} className="px-3 py-2 bg-slate-800 rounded-lg border border-slate-700 text-xs font-mono font-bold tracking-wider">
                       {tech}
                     </span>
                   ))}
@@ -574,33 +574,33 @@ export default function App() {
             </aside>
 
             {/* Featured Phases Gallery/Info */}
-            <div className="col-span-12 lg:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-10">
               {phases.map((phase) => (
                 <div
                   key={phase.id}
                   onClick={() => setSelectedPhase(phase)}
-                  className="bg-white p-6 rounded-2xl border-2 border-slate-900 brutalist-shadow-sm flex flex-col cursor-pointer group hover:border-brand-blue hover:translate-y-[-4px] transition-all"
+                  className="bg-white p-12 rounded-[3rem] border-4 border-slate-900 brutalist-shadow flex flex-col cursor-pointer group hover:border-brand-blue hover:translate-y-[-8px] transition-all"
                 >
-                  <div className="flex justify-between items-start mb-4">
-                    <span className={`px-3 py-1 rounded text-[10px] font-black tracking-widest ${phase.badgeClass}`}>
+                  <div className="flex justify-between items-start mb-8">
+                    <span className={`px-6 py-2 rounded-xl text-xs font-black tracking-[0.2em] shadow-sm uppercase ${phase.badgeClass}`}>
                       {phase.weeks}
                     </span>
-                    <div className={`w-10 h-10 rounded-xl ${phase.colorClass} flex items-center justify-center border-2 border-slate-900 group-hover:rotate-6 transition-transform`}>
-                      {phase.icon}
+                    <div className={`w-20 h-20 rounded-3xl ${phase.colorClass} flex items-center justify-center border-4 border-slate-900 group-hover:rotate-6 transition-transform shadow-lg`}>
+                      <div className="scale-150">{phase.icon}</div>
                     </div>
                   </div>
-                  <div className="label-caps mb-1 text-slate-400 font-medium tracking-normal">{phase.subtitle}</div>
-                  <h4 className="font-black text-2xl text-slate-900 mb-2 leading-none uppercase tracking-tight italic flex items-center justify-between">
+                  <div className="label-caps mb-3 text-slate-400 font-black tracking-[0.25em] text-xs uppercase">{phase.subtitle}</div>
+                  <h4 className="font-black text-4xl text-slate-900 mb-6 leading-none uppercase tracking-tighter italic flex items-center justify-between">
                     {phase.title}
-                    <Info className="w-5 h-5 text-slate-200 group-hover:text-brand-blue transition-colors" />
+                    <Info className="w-8 h-8 text-slate-200 group-hover:text-brand-blue transition-colors" />
                   </h4>
-                  <p className="text-xs text-slate-500 mb-6 leading-relaxed">
+                  <p className="text-2xl text-slate-600 mb-10 leading-relaxed font-medium italic">
                     {phase.description}
                   </p>
                   <div className="mt-auto">
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-3 gap-4">
                       {phase.products.map(item => (
-                        <div key={item} className="p-2 bg-slate-50 rounded border border-slate-200 text-[9px] font-bold text-slate-700 leading-tight flex items-center justify-center text-center italic group-hover:bg-brand-blue/5 transition-colors">
+                        <div key={item} className="p-4 bg-slate-50 rounded-2xl border-2 border-slate-100 text-xs font-black text-slate-700 leading-tight flex items-center justify-center text-center italic group-hover:bg-brand-blue/5 transition-colors shadow-sm">
                           {item}
                         </div>
                       ))}
@@ -613,29 +613,29 @@ export default function App() {
         </section>
 
         {/* Curriculum Section - Moved down */}
-        <section className="space-y-6 pt-12">
+        <section className="space-y-10 pt-16">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-            <div className="space-y-1">
-              <h3 className="text-3xl font-black uppercase italic tracking-tighter">Lộ trình bài học chi tiết</h3>
-              <p className="text-slate-500 text-sm">Chọn cấp độ để xem tiến độ 12 buổi bài học.</p>
+            <div className="space-y-2 border-l-8 border-brand-blue pl-6">
+              <h3 className="text-4xl font-black uppercase italic tracking-tighter">Lộ trình bài học chi tiết</h3>
+              <p className="text-slate-500 text-lg">Chọn cấp độ để xem tiến độ 12 buổi bài học.</p>
             </div>
-            <div className="flex bg-slate-200 p-1.5 rounded-2xl gap-1">
+            <div className="flex bg-slate-200 p-2 rounded-2xl gap-2">
               <button
                 onClick={() => setActiveTab("junior")}
-                className={`px-8 py-3 rounded-xl font-black text-xs uppercase transition-all ${activeTab === "junior" ? "bg-white text-slate-900 brutalist-shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                className={`px-10 py-4 rounded-xl font-black text-sm uppercase transition-all ${activeTab === "junior" ? "bg-white text-slate-900 brutalist-shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
               >
                 Junior Makers (6-9T)
               </button>
               <button
                 onClick={() => setActiveTab("pro")}
-                className={`px-8 py-3 rounded-xl font-black text-xs uppercase transition-all ${activeTab === "pro" ? "bg-white text-slate-900 brutalist-shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                className={`px-10 py-4 rounded-xl font-black text-sm uppercase transition-all ${activeTab === "pro" ? "bg-white text-slate-900 brutalist-shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
               >
                 Pro Makers (10-13T)
               </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {currentData.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -643,22 +643,22 @@ export default function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
                 onClick={() => setSelectedLesson(item)}
-                className="bg-white group cursor-pointer border-2 border-slate-200 rounded-3xl p-4 md:p-6 hover:border-slate-900 hover:translate-y-[-4px] transition-all relative overflow-hidden"
+                className="bg-white group cursor-pointer border-4 border-slate-200 rounded-[2.5rem] p-8 hover:border-slate-900 hover:translate-y-[-6px] transition-all relative overflow-hidden"
               >
-                <div className="flex justify-between items-start mb-3 relative z-10">
-                  <span className="text-[10px] font-black italic text-brand-blue uppercase">BUỔI {item.session < 10 ? `0${item.session}` : item.session}</span>
-                  <div className="p-1.5 rounded-lg bg-slate-50 text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-all">
-                    <Info className="w-4 h-4" />
+                <div className="flex justify-between items-start mb-4 relative z-10">
+                  <span className="text-xs font-black italic text-brand-blue uppercase">BUỔI {item.session < 10 ? `0${item.session}` : item.session}</span>
+                  <div className="p-2 rounded-xl bg-slate-50 text-slate-400 group-hover:bg-slate-900 group-hover:text-white transition-all">
+                    <Info className="w-5 h-5" />
                   </div>
                 </div>
-                <h4 className="font-black text-lg md:text-xl uppercase tracking-tighter leading-[1.1] mb-2 italic grow relative z-10 text-slate-900">{item.title}</h4>
-                <div className="flex items-center gap-2 text-brand-blue mb-4 relative z-10 bg-white/50 backdrop-blur-sm p-1 rounded inline-flex">
-                  <Layers className="w-3 h-3" />
-                  <span className="text-[10px] font-bold uppercase truncate">{item.product}</span>
+                <h4 className="font-black text-2xl uppercase tracking-tighter leading-[1.1] mb-3 italic grow relative z-10 text-slate-900">{item.title}</h4>
+                <div className="flex items-center gap-3 text-brand-blue mb-6 relative z-10 bg-white/50 backdrop-blur-sm p-2 rounded-lg inline-flex border border-brand-blue/10">
+                  <Layers className="w-4 h-4" />
+                  <span className="text-xs font-bold uppercase truncate">{item.product}</span>
                 </div>
 
                 {/* Floating Product Image Illustration */}
-                <div className="absolute -bottom-2 -right-2 w-24 md:w-32 h-24 md:h-32 opacity-25 blur-[2px] group-hover:opacity-60 group-hover:blur-0 transition-all duration-500 transform group-hover:scale-110 pointer-events-none">
+                <div className="absolute -bottom-4 -right-4 w-32 md:w-44 h-32 md:h-44 opacity-25 blur-[2px] group-hover:opacity-60 group-hover:blur-0 transition-all duration-500 transform group-hover:scale-110 pointer-events-none">
                   <img
                     src={item.image}
                     alt=""
@@ -666,11 +666,11 @@ export default function App() {
                   />
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 flex justify-between items-center relative z-10">
-                  <span className="px-2 py-0.5 bg-brand-blue/5 rounded text-[9px] font-bold text-brand-blue uppercase tracking-widest italic">
+                <div className="pt-4 border-t border-slate-100 flex justify-between items-center relative z-10">
+                  <span className="px-3 py-1 bg-brand-blue/5 rounded-lg text-xs font-bold text-brand-blue uppercase tracking-widest italic">
                     Tuần {item.week}
                   </span>
-                  <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-slate-900 transition-colors" />
+                  <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-slate-900 transition-colors" />
                 </div>
               </motion.div>
             ))}
@@ -680,52 +680,52 @@ export default function App() {
         {/* Showcase Footer */}
         <footer
           onClick={() => setShowShowcaseDetail(true)}
-          className="bg-brand-yellow p-6 rounded-3xl border-2 border-slate-900 brutalist-shadow flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative mt-12 cursor-pointer group hover:translate-y-[-4px] transition-all"
+          className="bg-brand-yellow p-10 rounded-[3rem] border-4 border-slate-900 brutalist-shadow flex flex-col lg:flex-row items-center justify-between gap-10 overflow-hidden relative mt-16 cursor-pointer group hover:translate-y-[-6px] transition-all"
         >
           <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:scale-110 group-hover:rotate-6 transition-transform">
-            <Rocket className="w-32 h-32 rotate-12" />
+            <Rocket className="w-48 h-48 rotate-12" />
           </div>
-          <div className="flex flex-col md:flex-row items-center gap-6 relative">
-            <div className="px-4 py-2 bg-slate-900 text-white rounded-lg font-black text-xs uppercase rotate-[-1deg] tracking-widest flex items-center gap-2">
-              <Award className="w-4 h-4 text-brand-yellow" /> Sự kiện Ra mắt
+          <div className="flex flex-col md:flex-row items-center gap-8 relative">
+            <div className="px-6 py-3 bg-slate-900 text-white rounded-xl font-black text-sm uppercase rotate-[-1deg] tracking-widest flex items-center gap-3">
+              <Award className="w-5 h-5 text-brand-yellow" /> Sự kiện Ra mắt
             </div>
-            <div className="hidden md:block h-10 w-px bg-slate-900/10"></div>
-            <h5 className="text-2xl font-black text-slate-900 uppercase tracking-tighter italic">
+            <div className="hidden md:block h-14 w-px bg-slate-900/10"></div>
+            <h5 className="text-3xl font-black text-slate-900 uppercase tracking-tighter italic">
               Future World Showcase (Tuần 5 - 6)
             </h5>
           </div>
 
-          <div className="flex flex-wrap justify-center md:justify-end gap-x-10 gap-y-4 relative">
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black group-hover:scale-110 transition-transform">09</span>
+          <div className="flex flex-wrap justify-center lg:justify-end gap-x-12 gap-y-6 relative">
+            <div className="flex items-center gap-4">
+              <span className="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs font-black group-hover:scale-110 transition-transform">09</span>
               <div className="flex flex-col">
-                <span className="label-caps text-slate-900 text-[8px]">Buổi 09</span>
-                <span className="text-slate-900 text-sm font-bold leading-none">Ý tưởng & Phác thảo PBL</span>
+                <span className="label-caps text-slate-900 text-[10px]">Buổi 09</span>
+                <span className="text-slate-900 text-base font-black leading-none">Ý tưởng & Phác thảo PBL</span>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black group-hover:scale-110 transition-transform">10</span>
+            <div className="flex items-center gap-4">
+              <span className="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs font-black group-hover:scale-110 transition-transform">10</span>
               <div className="flex flex-col">
-                <span className="label-caps text-slate-900 text-[8px]">Buổi 10</span>
-                <span className="text-slate-900 text-sm font-bold leading-none">Phát triển Hệ sinh thái</span>
+                <span className="label-caps text-slate-900 text-[10px]">Buổi 10</span>
+                <span className="text-slate-900 text-base font-black leading-none">Phát triển Hệ sinh thái</span>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black group-hover:scale-110 transition-transform">11</span>
+            <div className="flex items-center gap-4">
+              <span className="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs font-black group-hover:scale-110 transition-transform">11</span>
               <div className="flex flex-col">
-                <span className="label-caps text-slate-900 text-[8px]">Buổi 11</span>
-                <span className="text-slate-900 text-sm font-bold leading-none">Hoàn thiện Portfolio số</span>
+                <span className="label-caps text-slate-900 text-[10px]">Buổi 11</span>
+                <span className="text-slate-900 text-base font-black leading-none">Hoàn thiện Portfolio số</span>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-black group-hover:scale-110 transition-transform">12</span>
+            <div className="flex items-center gap-4">
+              <span className="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs font-black group-hover:scale-110 transition-transform">12</span>
               <div className="flex flex-col">
-                <span className="label-caps text-slate-900 text-[8px]">Buổi 12</span>
-                <span className="text-slate-900 text-sm font-bold leading-none">Lễ ra mắt STEM Showcase</span>
+                <span className="label-caps text-slate-900 text-[10px]">Buổi 12</span>
+                <span className="text-slate-900 text-base font-black leading-none">Lễ ra mắt STEM Showcase</span>
               </div>
             </div>
-            <div className="flex items-center self-center pl-4 text-slate-900 opacity-40 group-hover:opacity-100">
-              <ChevronRight className="w-5 h-5" />
+            <div className="flex items-center self-center pl-6 text-slate-900 opacity-40 group-hover:opacity-100">
+              <ChevronRight className="w-6 h-6" />
             </div>
           </div>
         </footer>
@@ -765,12 +765,12 @@ export default function App() {
           {showNotebookDetail && (
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand-blue/90 backdrop-blur-md"
+              className="fixed inset-0 z-[100] flex items-center justify-center p-8 bg-brand-blue/90 backdrop-blur-xl"
               onClick={() => setShowNotebookDetail(false)}
             >
               <motion.div
                 initial={{ scale: 0.9, y: 40 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 40 }}
-                className="bg-white w-full max-w-2xl rounded-[2.5rem] border-4 border-slate-900 brutalist-shadow-lg p-10 space-y-8"
+                className="bg-white w-full max-w-4xl rounded-[3rem] border-4 border-slate-900 brutalist-shadow-lg p-12 space-y-8"
                 onClick={e => e.stopPropagation()}
               >
                 <div className="flex items-center gap-4 text-brand-blue">
@@ -784,11 +784,11 @@ export default function App() {
                     { title: "Audio Overview (Podcast dự án)", desc: "Sử dụng tính năng phòng thu của NotebookLM để tạo ra một bản âm thanh giới thiệu dự án chuyên nghiệp dưới dạng đối thoại AI." },
                     { title: "FAQ & Thuyết trình", desc: "AI giúp học sinh xây dựng bộ câu hỏi phản biện và kịch bản thuyết trình phong cách sự kiện ra mắt sản phẩm chuẩn Pro." }
                   ].map((item, i) => (
-                    <div key={i} className="flex gap-4 items-start bg-slate-50 p-6 rounded-2xl border-2 border-slate-100">
-                      <span className="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-black text-xs shrink-0">{i + 1}</span>
+                    <div key={i} className="flex gap-6 items-start bg-slate-50 p-6 rounded-2xl border-2 border-slate-100">
+                      <span className="w-8 h-8 rounded-full bg-brand-blue text-white flex items-center justify-center font-black text-sm shrink-0">{i + 1}</span>
                       <div>
-                        <h4 className="font-black uppercase text-sm mb-1">{item.title}</h4>
-                        <p className="text-xs text-slate-500 leading-relaxed font-medium">{item.desc}</p>
+                        <h4 className="font-black uppercase text-xl mb-1">{item.title}</h4>
+                        <p className="text-base text-slate-500 leading-relaxed font-medium italic">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -796,7 +796,7 @@ export default function App() {
 
                 <button
                   onClick={() => setShowNotebookDetail(false)}
-                  className="w-full py-4 bg-slate-900 text-white rounded-xl font-black uppercase tracking-widest hover:bg-slate-800 transition-colors"
+                  className="w-full py-4 bg-slate-900 text-white rounded-xl font-black text-lg uppercase tracking-widest hover:bg-slate-800 transition-colors brutalist-shadow-sm"
                 >
                   Đóng thông tin
                 </button>
@@ -808,19 +808,19 @@ export default function App() {
           {showShowcaseDetail && (
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand-yellow/90 backdrop-blur-md"
+              className="fixed inset-0 z-[100] flex items-center justify-center p-8 bg-brand-yellow/90 backdrop-blur-xl"
               onClick={() => setShowShowcaseDetail(false)}
             >
               <motion.div
                 initial={{ scale: 0.9, y: 40 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 40 }}
-                className="bg-white w-full max-w-2xl rounded-[2.5rem] border-4 border-slate-900 brutalist-shadow-lg p-10 space-y-8"
+                className="bg-white w-full max-w-4xl rounded-[3rem] border-4 border-slate-900 brutalist-shadow-lg p-12 space-y-8"
                 onClick={e => e.stopPropagation()}
               >
                 <div className="flex items-center gap-4 text-slate-900">
                   <Award className="w-10 h-10" />
                   <h3 className="text-3xl font-black uppercase italic leading-none tracking-tighter">Future World Showcase</h3>
                 </div>
-                <p className="text-sm font-bold text-slate-500 italic">"Hành trình 4 buổi cuối khóa tập trung vào việc thực hiện dự án PBL và kết nối hệ sinh thái tương lai."</p>
+                <p className="text-xl font-black text-slate-500 italic">"Hành trình 4 buổi cuối khóa tập trung vào việc thực hiện dự án PBL và kết nối hệ sinh thái tương lai."</p>
 
                 <div className="space-y-4">
                   {[
@@ -829,11 +829,11 @@ export default function App() {
                     { session: 11, title: "Hoàn thiện & Tập dượt", desc: "Dùng AI Studio đóng gói hành trình 6 tuần thành Portfolio số và luyện tập trình diễn Showcase." },
                     { session: 12, title: "Sự kiện Ra mắt (The Big Day)", desc: "Học sinh trình diễn hệ sinh thái công nghệ và thuyết trình về hành trình nâng cấp bản thân." }
                   ].map((item, i) => (
-                    <div key={i} className="flex gap-4 items-start p-6 rounded-2xl border-2 border-slate-900 bg-brand-yellow/10">
-                      <div className="px-3 py-1 bg-slate-900 text-white rounded font-black text-[10px] uppercase shrink-0">Buổi {item.session}</div>
+                    <div key={i} className="flex gap-6 items-start p-6 rounded-2xl border-2 border-slate-900 bg-brand-yellow/10">
+                      <div className="px-4 py-1.5 bg-slate-900 text-white rounded-lg font-black text-xs uppercase shrink-0">Buổi {item.session}</div>
                       <div>
-                        <h4 className="font-black uppercase text-sm mb-1">{item.title}</h4>
-                        <p className="text-xs text-slate-600 leading-relaxed font-medium italic">{item.desc}</p>
+                        <h4 className="font-black uppercase text-xl mb-1">{item.title}</h4>
+                        <p className="text-base text-slate-600 leading-relaxed font-medium italic">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -841,7 +841,7 @@ export default function App() {
 
                 <button
                   onClick={() => setShowShowcaseDetail(false)}
-                  className="w-full py-4 bg-slate-900 text-white rounded-xl font-black uppercase tracking-widest hover:bg-slate-800 transition-colors"
+                  className="w-full py-4 bg-slate-900 text-white rounded-xl font-black text-lg uppercase tracking-widest hover:bg-slate-800 transition-colors brutalist-shadow-sm"
                 >
                   Đóng thông tin
                 </button>
