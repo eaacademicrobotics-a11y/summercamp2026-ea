@@ -177,8 +177,8 @@ const LessonModal = ({ item, onClose }: { item: any, onClose: () => void }) => (
             </div>
 
               <div>
-                <div className="label-caps mb-1.5 text-[10px] uppercase tracking-widest">Mục tiêu cốt lõi</div>
-                <p className="text-sm text-slate-700 leading-relaxed font-medium">{item.goal}</p>
+                <div className="label-caps mb-1 text-slate-500 text-[8px] uppercase tracking-widest">Mục tiêu cốt lõi</div>
+                <p className="text-xs text-slate-700 leading-relaxed font-medium">{item.goal}</p>
               </div>
             </div>
 
@@ -232,9 +232,15 @@ const PhaseModal = ({ phase, onClose }: { phase: any, onClose: () => void }) => 
       initial={{ scale: 0.9, opacity: 0, y: 40 }}
       animate={{ scale: 1, opacity: 1, y: 0 }}
       exit={{ scale: 0.9, opacity: 0, y: 40 }}
-      className="bg-white w-full max-w-4xl rounded-[2.5rem] border-2 border-slate-900 brutalist-shadow-sm overflow-hidden flex flex-col md:flex-row"
+      className="bg-white w-full max-w-4xl rounded-[2.5rem] border-2 border-slate-900 brutalist-shadow-sm overflow-hidden flex flex-col md:flex-row relative"
       onClick={e => e.stopPropagation()}
     >
+      <button 
+        onClick={onClose}
+        className="absolute top-6 right-6 z-50 p-2 bg-white/20 hover:bg-white/40 md:bg-slate-100 md:hover:bg-slate-200 rounded-full transition-colors backdrop-blur-sm border border-white/30 md:border-slate-200"
+      >
+        <X className="w-5 h-5 text-white md:text-slate-900" />
+      </button>
       {/* Sidebar: Icon & Basic Info */}
       <div className={`md:w-1/3 p-10 flex flex-col items-center justify-center text-center gap-6 ${phase.colorClass} border-b-2 md:border-b-0 md:border-r-2 border-slate-900 shadow-lg`}>
         <div className="w-24 h-24 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/30 rotate-3 shadow-xl">
@@ -251,14 +257,8 @@ const PhaseModal = ({ phase, onClose }: { phase: any, onClose: () => void }) => 
           <h3 className="text-2xl font-black uppercase italic leading-none tracking-tighter drop-shadow-lg">
             {phase.title}
           </h3>
-          <div className="label-caps mt-1 opacity-90 text-[10px] font-bold tracking-widest uppercase">{phase.subtitle}</div>
+          <div className="label-caps mt-1 opacity-90 text-[10px] font-bold tracking-widest uppercase text-white shadow-sm">{phase.subtitle}</div>
         </div>
-        <button
-          onClick={onClose}
-          className="mt-4 px-6 py-2 bg-slate-900 text-white rounded-lg font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-all brutalist-shadow-sm"
-        >
-          Đóng cửa sổ
-        </button>
       </div>
 
       {/* Main Content Area */}
@@ -300,9 +300,8 @@ const PhaseModal = ({ phase, onClose }: { phase: any, onClose: () => void }) => 
             </div>
           </div>
 
-          {/* Section: Products Grid */}
           <div className="space-y-6 pt-8 border-t border-slate-100">
-            <h4 className="label-caps flex items-center gap-2 text-[10px] uppercase tracking-widest">
+            <h4 className="label-caps flex items-center gap-2 text-[10px] uppercase tracking-widest text-slate-500">
               <Layers className="w-5 h-5 text-brand-blue" /> Sản phẩm tiêu biểu sau chặng
             </h4>
 
@@ -761,14 +760,21 @@ export default function App() {
           {showNotebookDetail && (
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-brand-blue/90 backdrop-blur-xl"
+              className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand-blue/90 backdrop-blur-xl"
               onClick={() => setShowNotebookDetail(false)}
             >
               <motion.div
                 initial={{ scale: 0.9, y: 40 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 40 }}
-                className="bg-white w-full max-w-3xl rounded-[2rem] border-2 border-slate-900 brutalist-shadow-sm p-8 space-y-6"
+                className="bg-white w-full max-w-3xl rounded-[2rem] border-2 border-slate-900 brutalist-shadow-sm p-8 space-y-6 relative"
                 onClick={e => e.stopPropagation()}
               >
+                <button 
+                  onClick={() => setShowNotebookDetail(false)}
+                  className="absolute top-6 right-6 p-2 hover:bg-slate-100 rounded-full transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+
                 <div className="flex items-center gap-3 text-brand-blue">
                   <Notebook className="w-8 h-8" />
                   <h3 className="text-xl font-black uppercase italic leading-none tracking-tight">Chiến thuật NotebookLM</h3>
@@ -789,13 +795,6 @@ export default function App() {
                     </div>
                   ))}
                 </div>
-
-                <button
-                  onClick={() => setShowNotebookDetail(false)}
-                  className="w-full py-3 bg-slate-900 text-white rounded-lg font-black text-sm uppercase tracking-widest hover:bg-slate-800 transition-colors brutalist-shadow-sm"
-                >
-                  Đóng thông tin
-                </button>
               </motion.div>
             </motion.div>
           )}
@@ -804,14 +803,21 @@ export default function App() {
           {showShowcaseDetail && (
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-brand-yellow/90 backdrop-blur-xl"
+              className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand-yellow/90 backdrop-blur-xl"
               onClick={() => setShowShowcaseDetail(false)}
             >
               <motion.div
                 initial={{ scale: 0.9, y: 40 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.9, y: 40 }}
-                className="bg-white w-full max-w-3xl rounded-[2rem] border-2 border-slate-900 brutalist-shadow-sm p-8 space-y-6"
+                className="bg-white w-full max-w-3xl rounded-[2rem] border-2 border-slate-900 brutalist-shadow-sm p-8 space-y-6 relative"
                 onClick={e => e.stopPropagation()}
               >
+                <button 
+                  onClick={() => setShowShowcaseDetail(false)}
+                  className="absolute top-6 right-6 p-2 hover:bg-slate-100 rounded-full transition-colors"
+                >
+                  <X className="w-5 h-5 text-slate-900" />
+                </button>
+
                 <div className="flex items-center gap-3 text-slate-900">
                   <Award className="w-8 h-8" />
                   <h3 className="text-xl font-black uppercase italic leading-none tracking-tight">Future World Showcase</h3>
@@ -834,13 +840,6 @@ export default function App() {
                     </div>
                   ))}
                 </div>
-
-                <button
-                  onClick={() => setShowShowcaseDetail(false)}
-                  className="w-full py-3 bg-slate-900 text-white rounded-lg font-black text-sm uppercase tracking-widest hover:bg-slate-800 transition-colors brutalist-shadow-sm"
-                >
-                  Đóng thông tin
-                </button>
               </motion.div>
             </motion.div>
           )}

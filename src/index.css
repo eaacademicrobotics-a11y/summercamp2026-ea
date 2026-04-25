@@ -37,7 +37,7 @@
 }
 
 .label-caps {
-  @apply text-[10px] uppercase font-bold tracking-widest text-slate-500;
+  @apply text-[10px] uppercase font-bold tracking-widest;
 }
 
 .dense-card {
