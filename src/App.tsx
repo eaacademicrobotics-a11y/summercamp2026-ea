@@ -141,29 +141,29 @@ const LessonModal = ({ item, onClose }: { item: any, onClose: () => void }) => (
       className="bg-white w-full max-w-3xl rounded-[2rem] border-2 border-slate-900 brutalist-shadow-sm overflow-hidden"
       onClick={e => e.stopPropagation()}
     >
-        <div className="flex justify-between items-center p-4 border-b border-slate-200 bg-slate-50">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-black text-lg italic shadow-md">
-              {item.session < 10 ? `0${item.session}` : item.session}
-            </div>
-            <div>
-              <div className="label-caps !text-slate-400 text-[10px] uppercase tracking-widest">Tuần {item.week} / Buổi {item.session}</div>
-              <h3 className="font-black text-lg uppercase tracking-tight italic">{item.title}</h3>
-            </div>
+      <div className="flex justify-between items-center p-4 border-b border-slate-200 bg-slate-50">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center font-black text-lg italic shadow-md">
+            {item.session < 10 ? `0${item.session}` : item.session}
           </div>
-          <button onClick={onClose} className="p-2 hover:bg-slate-200 rounded-lg transition-colors">
-            <X className="w-5 h-5" />
-          </button>
+          <div>
+            <div className="label-caps !text-slate-400 text-[10px] uppercase tracking-widest">Tuần {item.week} / Buổi {item.session}</div>
+            <h3 className="font-black text-lg uppercase tracking-tight italic">{item.title}</h3>
+          </div>
         </div>
+        <button onClick={onClose} className="p-2 hover:bg-slate-200 rounded-lg transition-colors">
+          <X className="w-5 h-5" />
+        </button>
+      </div>
 
-        <div className="p-8 space-y-6 max-h-[75vh] overflow-y-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div>
-                <div className="label-caps mb-1.5 text-brand-blue text-[10px] uppercase tracking-widest">Sản phẩm bài học</div>
-                <p className="font-black text-xl text-slate-800 uppercase italic leading-tight tracking-tight">{item.product}</p>
-                <p className="text-sm text-slate-500 mt-3 leading-relaxed font-medium italic border-l-2 border-brand-blue/20 pl-3">{item.description}</p>
-              </div>
+      <div className="p-8 space-y-6 max-h-[75vh] overflow-y-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <div>
+              <div className="label-caps mb-1.5 text-brand-blue text-[10px] uppercase tracking-widest">Sản phẩm bài học</div>
+              <p className="font-black text-xl text-slate-800 uppercase italic leading-tight tracking-tight">{item.product}</p>
+              <p className="text-sm text-slate-500 mt-3 leading-relaxed font-medium italic border-l-2 border-brand-blue/20 pl-3">{item.description}</p>
+            </div>
 
             <div className="aspect-video bg-slate-100 rounded-2xl border border-slate-900 brutalist-shadow-sm overflow-hidden relative group">
               <img
@@ -171,51 +171,45 @@ const LessonModal = ({ item, onClose }: { item: any, onClose: () => void }) => (
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 alt={item.title}
               />
-              <div className="absolute top-4 right-4 px-3 py-1 bg-white border border-slate-900 rounded font-mono text-[9px] font-black uppercase">
-                #ILLUSTRATION
-              </div>
+
             </div>
 
-              <div>
-                <div className="label-caps mb-1 text-slate-500 text-[8px] uppercase tracking-widest">Mục tiêu cốt lõi</div>
-                <p className="text-xs text-slate-700 leading-relaxed font-medium">{item.goal}</p>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200 shadow-sm">
-                <div className="label-caps mb-3 text-slate-900 flex items-center gap-2 text-[10px] uppercase tracking-widest">
-                  <Target className="w-4 h-4 text-brand-blue" /> Hoạt động chính
-                </div>
-                <p className="text-sm text-slate-600 leading-relaxed italic font-medium">{item.activities}</p>
-              </div>
-
-              <div className="p-6 bg-brand-blue/5 rounded-2xl border border-brand-blue/20 shadow-sm rotate-1">
-                <div className="flex items-center gap-2 mb-3">
-                  <Notebook className="w-5 h-5 text-brand-blue" />
-                  <span className="font-black text-[10px] uppercase tracking-widest text-brand-blue italic">NotebookLM Studio Trace</span>
-                </div>
-                <p className="text-sm text-slate-700 italic leading-relaxed font-bold">
-                  "{item.notebook}"
-                </p>
-              </div>
+            <div>
+              <div className="label-caps mb-1 text-slate-500 text-[8px] uppercase tracking-widest">Mục tiêu cốt lõi</div>
+              <p className="text-xs text-slate-700 leading-relaxed font-medium">{item.goal}</p>
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-2 pt-6 border-t border-slate-100">
-            {item.tags.map((tag: string) => (
-              <span key={tag} className="px-2 py-0.5 bg-slate-100 text-slate-500 rounded-md text-[9px] font-mono border border-slate-200 uppercase font-black tracking-widest">
-                #{tag}
-              </span>
-            ))}
+          <div className="space-y-6">
+            <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200 shadow-sm">
+              <div className="label-caps mb-3 text-slate-900 flex items-center gap-2 text-[10px] uppercase tracking-widest">
+                <Target className="w-4 h-4 text-brand-blue" /> Hoạt động chính
+              </div>
+              <p className="text-sm text-slate-600 leading-relaxed italic font-medium">{item.activities}</p>
+            </div>
+
+            <div className="p-6 bg-brand-blue/5 rounded-2xl border border-brand-blue/20 shadow-sm rotate-1">
+              <div className="flex items-center gap-2 mb-3">
+                <Notebook className="w-5 h-5 text-brand-blue" />
+                <span className="font-black text-[10px] uppercase tracking-widest text-brand-blue italic">NotebookLM Studio Trace</span>
+              </div>
+              <p className="text-sm text-slate-700 italic leading-relaxed font-bold">
+                "{item.notebook}"
+              </p>
+            </div>
           </div>
+        </div>
+
+        <div className="flex flex-wrap gap-2 pt-6 border-t border-slate-100">
+          {item.tags.map((tag: string) => (
+            <span key={tag} className="px-2 py-0.5 bg-slate-100 text-slate-500 rounded-md text-[9px] font-mono border border-slate-200 uppercase font-black tracking-widest">
+              #{tag}
+            </span>
+          ))}
+        </div>
       </div>
 
-        <div className="p-4 bg-slate-900 flex justify-end">
-          <button className="px-8 py-2.5 bg-brand-yellow text-slate-900 rounded-lg font-black text-xs uppercase tracking-widest brutalist-shadow-sm hover:translate-y-[-2px] transition-transform">
-            Đăng ký ngay
-          </button>
-        </div>
+
     </motion.div>
   </motion.div>
 );
@@ -235,7 +229,7 @@ const PhaseModal = ({ phase, onClose }: { phase: any, onClose: () => void }) => 
       className="bg-white w-full max-w-4xl rounded-[2.5rem] border-2 border-slate-900 brutalist-shadow-sm overflow-hidden flex flex-col md:flex-row relative"
       onClick={e => e.stopPropagation()}
     >
-      <button 
+      <button
         onClick={onClose}
         className="absolute top-6 right-6 z-50 p-2 bg-white/20 hover:bg-white/40 md:bg-slate-100 md:hover:bg-slate-200 rounded-full transition-colors backdrop-blur-sm border border-white/30 md:border-slate-200"
       >
@@ -379,8 +373,8 @@ export default function App() {
               <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-tight text-white drop-shadow-xl w-full text-justify whitespace-normal">
                 HÀNH TRÌNH PHÁT HÀNH PHIÊN BẢN <span className="text-brand-yellow">TƯƠNG LAI CỦA CHÍNH CON</span>
               </h2>
-              <p className="text-slate-400 text-base md:text-xl leading-relaxed w-full text-justify italic font-medium">
-                Ba mẹ đang băn khoăn chọn trại hè cho con? Đừng để mùa hè của con trôi qua vô nghĩa trước màn hình điện thoại hay những lớp học khô khan. <strong>EA SUMMER STEM TREK 2026</strong> mang đến câu trả lời hoàn hảo: Nơi con không chỉ "học" công nghệ, mà dùng công nghệ để kiến tạo thế giới của riêng mình.
+              <p className="text-slate-200 text-base md:text-xl leading-relaxed w-full text-justify italic font-medium">
+                Ba mẹ đang băn khoăn chọn trại hè cho con? Đừng để mùa hè của con trôi qua vô nghĩa trước màn hình điện thoại hay những lớp học khô khan. <strong className="text-white font-black">EA SUMMER CAMP STEM TREK 2026</strong> mang đến câu trả lời hoàn hảo: Nơi con không chỉ "học" công nghệ, mà dùng công nghệ để kiến tạo thế giới của riêng mình.
               </p>
             </div>
 
@@ -517,7 +511,7 @@ export default function App() {
               </h2>
               <p className="text-slate-500 text-sm mt-2 font-medium">Bấm vào từng chặng để xem mục tiêu và sản phẩm chi tiết.</p>
             </div>
-            <div className="hidden md:flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-widest">
+            <div className="hidden md:flex items-center gap-2 text-[10px] font-black text-slate-600 uppercase tracking-widest">
               <Clock className="w-3.5 h-3.5" /> Tổng thời lượng: 6 tuần / 12 buổi
             </div>
           </div>
@@ -748,7 +742,7 @@ export default function App() {
               <Zap className="w-3 h-3 fill-slate-400" /> FUTURE ME - FUTURE WORLD / BROCHURE CHÍNH THỨC
             </div>
           </div>
-          <div>© 2026 EA EDISON ACADEMIC / BẢO LƯU MỌI QUYỀN</div>
+          <div>© 2026 EDISON STEM ACADEMY / BẢO LƯU MỌI QUYỀN</div>
         </div>
 
         {/* Modal Portal */}
@@ -768,7 +762,7 @@ export default function App() {
                 className="bg-white w-full max-w-3xl rounded-[2rem] border-2 border-slate-900 brutalist-shadow-sm p-8 space-y-6 relative"
                 onClick={e => e.stopPropagation()}
               >
-                <button 
+                <button
                   onClick={() => setShowNotebookDetail(false)}
                   className="absolute top-6 right-6 p-2 hover:bg-slate-100 rounded-full transition-colors"
                 >
@@ -811,7 +805,7 @@ export default function App() {
                 className="bg-white w-full max-w-3xl rounded-[2rem] border-2 border-slate-900 brutalist-shadow-sm p-8 space-y-6 relative"
                 onClick={e => e.stopPropagation()}
               >
-                <button 
+                <button
                   onClick={() => setShowShowcaseDetail(false)}
                   className="absolute top-6 right-6 p-2 hover:bg-slate-100 rounded-full transition-colors"
                 >
